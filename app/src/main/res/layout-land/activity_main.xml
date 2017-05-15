@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.thais.calculatrice.MainActivity">
+
+    <TextView
+        android:id="@+id/txtScreen2"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@android:color/background_light"
+        android:lines="2"
+        android:maxLines="2"
+        android:text="@string/txtScreen2"
+        android:textColor="@android:color/black"
+        android:gravity="bottom|right"
+        android:textSize="40sp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_above="@+id/txtScreen" />
+
+    <TextView
+        android:id="@+id/txtScreen"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@android:color/background_light"
+        android:lines="2"
+        android:maxLines="2"
+        android:text="@string/txtScreen"
+        android:textColor="@android:color/black"
+        android:gravity="bottom|right"
+        android:textSize="30sp"
+        android:layout_above="@+id/btnSeven"
+        android:layout_alignParentStart="true" />
+
+    //Buttons
+
+    <Button
+        android:id="@+id/btnDel"
+        android:layout_width="75dp"
+        android:layout_height="65dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:onClick="onClickDel"
+        android:text="@string/btnDel"
+        android:textSize="30sp"
+        android:gravity="top|center"
+        android:layout_below="@+id/buttonSignal" />
+
+    <Button
+        android:id="@+id/btnC"
+        android:layout_width="75dp"
+        android:layout_height="55dp"
+        android:onClick="onClickClear"
+        android:text="@string/btnC"
+        android:textSize="20sp"
+        android:layout_below="@+id/btnCE"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:id="@+id/btnCE"
+        android:layout_width="75dp"
+        android:layout_height="55dp"
+        android:onClick="onClickClear"
+        android:text="@string/btnCE"
+        android:textSize="20sp"
+        android:layout_below="@+id/txtScreen"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:id="@+id/buttonSignal"
+        android:layout_width="75dp"
+        android:layout_height="55dp"
+        android:onClick="onClickSign"
+        android:text="@string/btnPM"
+        android:textSize="20sp"
+        android:layout_below="@+id/btnC"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:id="@+id/btnEnter"
+        style="@style/Widget.AppCompat.Button"
+        android:layout_width="75dp"
+        android:layout_height="155dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:elevation="14dp"
+        android:onClick="onClickEqual"
+        android:text="@string/btnResult"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        android:layout_below="@+id/btnAdd" />
+
+    <Button
+        android:id="@+id/btnFrac"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:onClick="onClickOperation"
+        android:text="@string/btnX"
+        android:textSize="20sp"
+        android:layout_below="@+id/txtScreen"
+        android:layout_toStartOf="@+id/btnSub" />
+
+    <Button
+        android:id="@+id/btnParcent"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:onClick="onClickOperation"
+        android:text="@string/btnPercent"
+        android:textSize="20sp"
+        android:layout_alignBottom="@+id/btnDiv"
+        android:layout_alignStart="@+id/btnFrac"
+        android:layout_below="@+id/btnFrac" />
+
+    <Button
+        android:id="@+id/btnCarre"
+        style="@style/Widget.AppCompat.Button"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:onClick="onClickOperation"
+        android:text="@string/btnSquare"
+        android:textSize="20sp"
+        android:layout_alignParentBottom="true"
+        android:layout_toEndOf="@+id/btnDot" />
+
+    <Button
+        android:id="@+id/btnDot"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="95dp"
+        android:layout_height="55dp"
+        android:onClick="onClickDot"
+        android:text="@string/btnDot"
+        android:textSize="20sp"
+        android:layout_alignParentBottom="true"
+        android:layout_toStartOf="@+id/btnParcent" />
+
+    <Button
+        android:id="@+id/btnAdd"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:onClick="onClickOperation"
+        android:text="@string/btnAdd"
+        android:textSize="20sp"
+        android:layout_below="@+id/txtScreen"
+        android:layout_alignParentEnd="true" />
+
+    <Button
+        android:id="@+id/btnMult"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:onClick="onClickOperation"
+        android:text="@string/btnMult"
+        android:textSize="20sp"
+        android:layout_alignParentBottom="true"
+        android:layout_toStartOf="@+id/btnEnter" />
+
+    <Button
+        android:id="@+id/btnSub"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:onClick="onClickOperation"
+        android:text="@string/btnSub"
+        android:textSize="20sp"
+        android:layout_alignTop="@+id/btnCE"
+        android:layout_toStartOf="@+id/btnAdd" />
+
+    <Button
+        android:id="@+id/btnDiv"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:onClick="onClickOperation"
+        android:text="@string/btnDiv"
+        android:textSize="20sp"
+        android:layout_below="@+id/btnFrac"
+        android:layout_toEndOf="@+id/btnFrac" />
+" />
+
+    //Nombres
+
+    <Button
+        android:id="@+id/btnZero"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="190dp"
+        android:layout_height="55dp"
+        android:onClick="onClickNumber"
+        android:text="@string/btnZero"
+        android:textColorLink="@android:color/holo_orange_dark"
+        android:textSize="20sp"
+        android:layout_alignParentBottom="true"
+        android:layout_toStartOf="@+id/btnDot" />
+
+    <Button
+        android:id="@+id/btnOne"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="95dp"
+        android:layout_height="55dp"
+        android:onClick="onClickNumber"
+        android:text="@string/btnOne"
+        android:textSize="20sp"
+        android:layout_above="@+id/btnZero"
+        android:layout_alignStart="@+id/btnZero" />
+
+    <Button
+        android:id="@+id/btnTwo"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="95dp"
+        android:layout_height="55dp"
+        android:onClick="onClickNumber"
+        android:text="@string/btnTwo"
+        android:textSize="20sp"
+        android:layout_alignBottom="@+id/btnOne"
+        android:layout_toEndOf="@+id/btnOne"
+        android:layout_alignTop="@+id/btnOne" />
+
+    <Button
+        android:id="@+id/btnThree"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="95dp"
+        android:layout_height="55dp"
+        android:onClick="onClickNumber"
+        android:text="@string/btnThree"
+        android:textSize="20sp"
+        android:layout_alignBottom="@+id/btnTwo"
+        android:layout_toEndOf="@+id/btnZero"
+        android:layout_alignTop="@+id/btnTwo" />
+
+    <Button
+        android:id="@+id/btnFour"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="95dp"
+        android:layout_height="55dp"
+        android:onClick="onClickNumber"
+        android:text="@string/btnFour"
+        android:textSize="20sp"
+        android:layout_above="@+id/btnOne"
+        android:layout_alignStart="@+id/btnOne" />
+
+    <Button
+        android:id="@+id/btnFive"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="95dp"
+        android:layout_height="55dp"
+        android:onClick="onClickNumber"
+        android:text="@string/btnFive"
+        android:textSize="20sp"
+        android:layout_alignBottom="@+id/btnFour"
+        android:layout_toEndOf="@+id/btnFour"
+        android:layout_alignTop="@+id/btnFour" />
+
+    <Button
+        android:id="@+id/btnSix"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="95dp"
+        android:layout_height="55dp"
+        android:onClick="onClickNumber"
+        android:text="@string/btnSix"
+        android:textSize="20sp"
+        android:layout_alignBottom="@+id/btnFive"
+        android:layout_toEndOf="@+id/btnTwo"
+        android:layout_alignTop="@+id/btnFive" />
+
+    <Button
+        android:id="@+id/btnSeven"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="95dp"
+        android:layout_height="55dp"
+        android:onClick="onClickNumber"
+        android:text="@string/btnSeven"
+        android:textSize="20sp"
+        android:layout_above="@+id/btnFour"
+        android:layout_alignStart="@+id/btnFour" />
+
+    <Button
+        android:id="@+id/btnEight"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="95dp"
+        android:layout_height="55dp"
+        android:onClick="onClickNumber"
+        android:text="@string/btnEight"
+        android:textSize="20sp"
+        android:layout_alignBottom="@+id/btnSeven"
+        android:layout_toEndOf="@+id/btnSeven"
+        android:layout_alignTop="@+id/btnSeven" />
+
+    <Button
+        android:id="@+id/btnNine"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="95dp"
+        android:layout_height="55dp"
+        android:onClick="onClickNumber"
+        android:text="@string/btnNine"
+        android:textSize="20sp"
+        android:layout_alignBottom="@+id/btnEight"
+        android:layout_toEndOf="@+id/btnFive"
+        android:layout_alignTop="@+id/btnEight" />
+
+</RelativeLayout>
+
+</layout>

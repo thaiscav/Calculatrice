@@ -1,0 +1,32 @@
+<resources>
+    <string name="app_name">Calculatrice</string>
+    <string name="btnDot">.</string>
+
+    <string name="btnZero">0</string>
+    <string name="btnOne">1</string>
+    <string name="btnTwo">2</string>
+    <string name="btnThree">3</string>
+    <string name="btnFour">4</string>
+    <string name="btnFive">5</string>
+    <string name="btnSix">6</string>
+    <string name="btnSeven">7</string>
+    <string name="btnEight">8</string>
+    <string name="btnNine">9</string>
+
+    <string name="btnAdd">+</string>
+    <string name="btnSub">-</string>
+    <string name="btnMult">*</string>
+    <string name="btnDiv">/</string>
+    <string name="btnPercent">%</string>
+    <string name="btnX">1/x</string>
+    <string name="btnSquare">■</string>
+    <string name="btnResult">=</string>
+
+    <string name="btnC" >C</string>
+    <string name="btnCE">CE</string>
+    <string name="btnPM">±</string>
+    <string name="btnDel">←</string>
+
+    <string name="txtScreen"></string>
+    <string name="txtScreen2">0</string>
+</resources>
