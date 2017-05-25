@@ -6,33 +6,18 @@
     tools:context="com.example.thais.calculatrice.MainActivity">
 
     <TextView
-        android:id="@+id/txtScreen2"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:background="@android:color/background_light"
-        android:lines="2"
-        android:maxLines="2"
-        android:text="@string/txtScreen2"
-        android:textColor="@android:color/black"
-        android:gravity="bottom|right"
-        android:textSize="40sp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true"
-        android:layout_above="@+id/txtScreen" />
-
-    <TextView
         android:id="@+id/txtScreen"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="50dp"
         android:background="@android:color/background_light"
         android:lines="2"
         android:maxLines="2"
         android:text="@string/txtScreen"
         android:textColor="@android:color/black"
         android:gravity="bottom|right"
-        android:textSize="30sp"
+        android:textSize="40sp"
         android:layout_above="@+id/btnSeven"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentTop="true" />
 
     //Buttons
 
@@ -83,13 +68,13 @@
         style="@style/Widget.AppCompat.Button"
         android:layout_width="75dp"
         android:layout_height="155dp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true"
         android:elevation="14dp"
         android:onClick="onClickEqual"
         android:text="@string/btnResult"
         android:textAlignment="center"
         android:textSize="20sp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
         android:layout_below="@+id/btnAdd" />
 
     <Button
@@ -100,7 +85,8 @@
         android:text="@string/btnX"
         android:textSize="20sp"
         android:layout_below="@+id/txtScreen"
-        android:layout_toStartOf="@+id/btnSub" />
+        android:layout_toStartOf="@+id/btnSub"
+        android:layout_alignBottom="@+id/btnSub" />
 
     <Button
         android:id="@+id/btnParcent"
@@ -109,9 +95,10 @@
         android:onClick="onClickOperation"
         android:text="@string/btnPercent"
         android:textSize="20sp"
-        android:layout_alignBottom="@+id/btnDiv"
         android:layout_alignStart="@+id/btnFrac"
-        android:layout_below="@+id/btnFrac" />
+        android:layout_below="@+id/btnFrac"
+        android:layout_above="@+id/btnCarre"
+        android:layout_toStartOf="@+id/btnSub" />
 
     <Button
         android:id="@+id/btnCarre"
@@ -122,7 +109,8 @@
         android:text="@string/btnSquare"
         android:textSize="20sp"
         android:layout_alignParentBottom="true"
-        android:layout_toEndOf="@+id/btnDot" />
+        android:layout_toEndOf="@+id/btnDot"
+        android:layout_alignTop="@+id/btnMult" />
 
     <Button
         android:id="@+id/btnDot"
@@ -143,7 +131,8 @@
         android:text="@string/btnAdd"
         android:textSize="20sp"
         android:layout_below="@+id/txtScreen"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:layout_above="@+id/btnDiv" />
 
     <Button
         android:id="@+id/btnMult"
@@ -153,7 +142,7 @@
         android:text="@string/btnMult"
         android:textSize="20sp"
         android:layout_alignParentBottom="true"
-        android:layout_toStartOf="@+id/btnEnter" />
+        android:layout_toEndOf="@+id/btnParcent" />
 
     <Button
         android:id="@+id/btnSub"
@@ -173,7 +162,8 @@
         android:text="@string/btnDiv"
         android:textSize="20sp"
         android:layout_below="@+id/btnFrac"
-        android:layout_toEndOf="@+id/btnFrac" />
+        android:layout_toEndOf="@+id/btnFrac"
+        android:layout_above="@+id/btnMult" />
 " />
 
     //Nombres
