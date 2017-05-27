@@ -164,7 +164,6 @@
         android:layout_below="@+id/btnFrac"
         android:layout_toEndOf="@+id/btnFrac"
         android:layout_above="@+id/btnMult" />
-" />
 
     //Nombres
 
@@ -187,6 +186,7 @@
         android:layout_height="55dp"
         android:onClick="onClickNumber"
         android:text="@string/btnOne"
+        android:textColorLink="@android:color/holo_orange_dark"
         android:textSize="20sp"
         android:layout_above="@+id/btnZero"
         android:layout_alignStart="@+id/btnZero" />
@@ -198,6 +198,7 @@
         android:layout_height="55dp"
         android:onClick="onClickNumber"
         android:text="@string/btnTwo"
+        android:textColorLink="@android:color/holo_orange_dark"
         android:textSize="20sp"
         android:layout_alignBottom="@+id/btnOne"
         android:layout_toEndOf="@+id/btnOne"
@@ -210,6 +211,7 @@
         android:layout_height="55dp"
         android:onClick="onClickNumber"
         android:text="@string/btnThree"
+        android:textColorLink="@android:color/holo_orange_dark"
         android:textSize="20sp"
         android:layout_alignBottom="@+id/btnTwo"
         android:layout_toEndOf="@+id/btnZero"
@@ -222,6 +224,7 @@
         android:layout_height="55dp"
         android:onClick="onClickNumber"
         android:text="@string/btnFour"
+        android:textColorLink="@android:color/holo_orange_dark"
         android:textSize="20sp"
         android:layout_above="@+id/btnOne"
         android:layout_alignStart="@+id/btnOne" />
@@ -233,6 +236,7 @@
         android:layout_height="55dp"
         android:onClick="onClickNumber"
         android:text="@string/btnFive"
+        android:textColorLink="@android:color/holo_orange_dark"
         android:textSize="20sp"
         android:layout_alignBottom="@+id/btnFour"
         android:layout_toEndOf="@+id/btnFour"
@@ -245,6 +249,7 @@
         android:layout_height="55dp"
         android:onClick="onClickNumber"
         android:text="@string/btnSix"
+        android:textColorLink="@android:color/holo_orange_dark"
         android:textSize="20sp"
         android:layout_alignBottom="@+id/btnFive"
         android:layout_toEndOf="@+id/btnTwo"
@@ -257,6 +262,7 @@
         android:layout_height="55dp"
         android:onClick="onClickNumber"
         android:text="@string/btnSeven"
+        android:textColorLink="@android:color/holo_orange_dark"
         android:textSize="20sp"
         android:layout_above="@+id/btnFour"
         android:layout_alignStart="@+id/btnFour" />
@@ -268,6 +274,7 @@
         android:layout_height="55dp"
         android:onClick="onClickNumber"
         android:text="@string/btnEight"
+        android:textColorLink="@android:color/holo_orange_dark"
         android:textSize="20sp"
         android:layout_alignBottom="@+id/btnSeven"
         android:layout_toEndOf="@+id/btnSeven"
@@ -280,6 +287,7 @@
         android:layout_height="55dp"
         android:onClick="onClickNumber"
         android:text="@string/btnNine"
+        android:textColorLink="@android:color/holo_orange_dark"
         android:textSize="20sp"
         android:layout_alignBottom="@+id/btnEight"
         android:layout_toEndOf="@+id/btnFive"
