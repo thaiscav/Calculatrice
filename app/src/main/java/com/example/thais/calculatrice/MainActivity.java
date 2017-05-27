@@ -1,26 +1,18 @@
 package com.example.thais.calculatrice;
 
-import android.os.PatternMatcher;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.view.ViewPropertyAnimatorCompatSet;
 import android.widget.*;
 import android.view.*;
 import android.widget.TextView;
-import android.util.Log;
-import java.util.regex.Pattern;
-import java.lang.Double;
-import android.text.TextWatcher;
-
+import java.lang.*;
 
 public class MainActivity extends AppCompatActivity {
 
     private static final String TAG_Error = "Error:";
-    private TextView screen, screen2;    //txtScreen e txtScreen2 = mostra o resultado e calc
-    private String displayCalc = "", displayResult = "", valueEntered = "", operator = null, memoOperator = null, sign = "+";
-
-    //teste
-    private Double result = null, val = null;
+    private TextView displayCalc = null;
+    private String operation = "";
+    private double total = 0.0 , val1 = 0.0, val2 = 0.0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,213 +20,179 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        screen2 = (TextView) findViewById(R.id.txtScreen2);
-        screen2.setText(displayCalc);
-
-        screen = (TextView) findViewById(R.id.txtScreen);
-        screen.setText(displayCalc);
+        displayCalc = (TextView) findViewById(R.id.txtScreen);
 
     }//fin onCreate
 
-    private void updateScreen(){
-
-        screen2.setText(displayCalc); // = calcul
-
-        if (result != null) {
-
-            displayResult = result.toString();
-
-        }
-
-        screen.setText(displayResult); // = result
-
-    }// fin updateScreen
-
     protected void onClickNumber (View v){
 
-        Button b = (Button) v;
+        Button number = (Button) v;
 
-        if (displayCalc == "0")
+        if (displayCalc.getText().toString().equals("0"))
         {
-            displayCalc="";
+            displayCalc.setText("");
         }
 
-        //TXT: Sauvagarde chaque valeur tappé
-        valueEntered += b.getText().toString();
-        Log.e("valueEntered", ": " + valueEntered);
-
-        //TXT: Sauvagarde / concatene les valeurs et les operateurs
-        displayCalc += b.getText().toString();
-        Log.e("displayCalc", ": " + displayCalc);
-
-        //DOUBLE: Prendre chaque valeur tappé
-        try{
-            val = Double.parseDouble(valueEntered);
-            Log.e("value", ": " + val);
-        }
-        catch(NumberFormatException e){
-            Log.d(TAG_Error, e.getMessage());
-        }
-
-        if (operator != null)
-        {
-            calculate();
-        }
-
-        updateScreen();
+        displayCalc.append(number.getText());
 
     }//fin onClickNumber
-
-    private void save(){
-
-        //resultorise le 1 valeur
-        result = val;
-        // Efface la variable afin de prendre le 2 valeur
-        val = null;
-
-        Log.e("result2", ": " + result);
-        Log.e("value", ": " + val);
-
-    }
 
     public void onClickOperation(View v){
 
         //Prendre l'operateur
-        Button b = (Button) v;
-        operator = b.getText().toString();
+        Button button = (Button) v;
+        operation = button.getText().toString();
 
-        if (operator != memoOperator){
+        getVal1();
 
-            //Display tout le contenu concatenné
-            displayCalc += operator;
+    }//fin onClickOperation
 
-            //Efface le display afin de prendre le 2 txt
-            valueEntered = "";
+    public void onClickSpecialOperation(View v){
 
-            //memoriser operator
-            memoOperator = operator;
+        //Prendre l'operateur
+        Button button = (Button) v;
+        operation = button.getText().toString();
 
-            updateScreen();
-            save();
+        getVal1();
+        calculate();
+
+    }//fin onClickSpecialOperation
+
+    public void getVal1(){
+
+        if ((displayCalc.getText().length() == 0) || (displayCalc.getText().equals("0")))
+        {
+            return;
         }
 
-    }//fin onClickSigns
-
-    private void calculate() { //String a, String b, String op
-
-        switch (operator) {
-
-            case "+": // Add
-                //result = result + result;
-                result += val;
-                break;
-                //(Double.valueOf(a) + Double.valueOf(b));
-
-            case "-": // subs
-                //result = result - result;
-                result -= val;
-                break;
-                //(Double.valueOf(result) - Double.valueOf(val));
-
-            case "*": // mult
-                result *= (val);
-                break;
-                //(Double.valueOf(result) * Double.valueOf(val));
-
-            case "/": // div
-                result /= (val);
-                break;
-                //(Double.valueOf(result) / Double.valueOf(val));
-
-            case "%": // percentage
-                result = (Double.valueOf(result) * (Double.valueOf(val)/100));
-                break;
-
-            case "x": // 1/x
-                result = 1 / (Double.valueOf(result));
-                break;
-
-            case "2": // square root
-                result = Double.valueOf(result);
-                break;
-
-            default: result = null;
-                    // displayResult = "erreur";
-        }//fin switch
-
-        memoOperator = null;
-
-    }//fin calculate
-
-    public void onClickEqual(View v){
-
-/*
-        String[] operation = displayCalc.split(Pattern.quote(operator));
-
-        if (operation.length < 2) return;
-
-        Double result = calculate(operation[0], operation[1],  operator);
-
-        screen.setText(displayCalc + "\n" + String.ValueOf(result));
-*/
-    }//fin Equal
-
-    public void onClickClear(View v)    {
-
-        result = null;
-        val=null;
-
-        operator = "";
-        displayCalc = "0";
-        displayResult = "";
-        valueEntered = "";
-
-        Log.d("Clear - ","result: "+result);
-        Log.d("Clear - ","operator: "+operator);
-
-        updateScreen();
-
-    }//fin clear
-
-    public void clear(){
-
-    }
-
-    public void onClickSign(View v){
-
-        //trocar sinal de + para - e de - para +
-
-    }//fin operator + or -
+        val1 = Double.parseDouble(displayCalc.getText().toString());
+        displayCalc.setHint(displayCalc.getText().toString());
+        displayCalc.setText("");
+    }//fin getVal1
 
     public void onClickDot(View v){
 
-        displayCalc += ".";
+        if (!displayCalc.getText().toString().contains(".")) {
 
-    }//fin Dot
+            if (displayCalc.getText().length() == 0)
+            {
+                displayCalc.append("0");
+            }
+
+            displayCalc.append(".");
+        }
+
+    }//fin onClickDot
+
+    public void onClickEqual(View v){
+
+        if ((displayCalc.getText().length() == 0) || (displayCalc.getText().equals("0")))
+        {
+            return;
+        }
+
+        val2 = Double.parseDouble(displayCalc.getText().toString());
+
+        calculate();
+
+    }//fin onClickEqual
+
+    private void calculate() {
+
+              switch (operation) {
+
+                case "+": // Add
+                    total = val1 + val2;
+                    break;
+
+                case "-": // subs
+                    total = val1 - val2;
+                    break;
+
+                case "*": // mult
+                    total = (val1 * val2);
+                    break;
+
+                case "/": // div
+                    total = (val1 / val2);
+                    break;
+
+                  case "%": // percentage
+                      total = (val1/100);
+                      break;
+
+                  case "1/x": // 1/x
+                      total = (1 / val1);
+                      break;
+
+                  case "√": // square root
+                      total = Math.sqrt(val1);
+                      break;
+
+                default:
+                    Toast.makeText(getApplicationContext(), "Impossible de calculer", Toast.LENGTH_SHORT).show();
+                    break;
+
+        }//fin switch
+
+        displayCalc.setHint(String.valueOf(total));
+        displayCalc.setText("");
+        val1 = total;
+
+    }//fin calculate
+
+    public void onClickClear(View v) {
+
+        clearDisplay();
+
+    }//fin onClickClear
+
+    public void clearDisplay(){
+
+        displayCalc.setText("0");
+        displayCalc.setHint("0");
+
+        total = 0.0;
+        val1 = 0.0;
+        val2 = 0.0;
+        operation = "";
+
+    }//fin clearDisplay
+
+    public void onClickSign(View v){//Changer sign + et -
+
+        if (!displayCalc.getText().toString().equals("0"))
+        {
+            float inversion;
+
+            inversion = -(Float.parseFloat(displayCalc.getText().toString()));
+
+            displayCalc.setText(String.valueOf(inversion));
+        }
+
+    }//fin onClickSign
 
     public void onClickDel(View v){
 
         del();
 
-    }//fin Del
+    }//fin onClickDel
 
     public void del() {
 
-        if (displayCalc != null && displayCalc.length() > 0)// && displayCalc.charAt(displayCalc.length()-1)=='x')
+        if (displayCalc.length() > 0)// && strCalc.charAt(strCalc.length()-1)=='x')
         {
-            valueEntered = valueEntered.substring(0, valueEntered.length()-1);
-            displayCalc = displayCalc.substring(0, displayCalc.length()-1);
-            val = Double.parseDouble(valueEntered);
+            String val = displayCalc.getText().toString();
+            String newVal = val.substring(0, val.length()-1);
 
-            //calculate();
-            updateScreen();
 
-            Log.e("Del valueEntered", ": " + valueEntered);
-            Log.e("Del displayCalc", ": " + displayCalc);
-            Log.e("Del val", ": " + val);
-            Log.e("Del result", ": " + result);
+            if(newVal.length() != 0) {
+                displayCalc.setText(newVal);
+            }
+            else {
+                displayCalc.setText("0");
+            }
         }
-    }
-
+    }//fin del
 
 }//fin MainActivity
